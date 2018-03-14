@@ -15,4 +15,5 @@ Notes:
 5) Make sure ssh is enabled on the routers. For help regarding this, refer to https://www.pluralsight.com/blog/tutorials/configure-secure-shell-ssh-on-cisco-router
 6) The iBGP session is set up between the physical interfaces of the routers and NOT the loopback interfaces. However, the URL guide demonstrates how to set up iBGP between the loopback interfaces which is generally how iBGP is set up.
 Note: Date of completion: 03-14-2018
+7) A screenshot of the GNS3 network simualtion is uploaded as well. Check out the png file on this repository.
 For more information email me: saki8093@colorado.edu
