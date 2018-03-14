@@ -1,0 +1,123 @@
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+R2_Kishan(config)#do show run
+Building configuration...
+
+Current configuration : 1446 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R2_Kishan
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+memory-size iomem 5
+!
+!
+ip cef
+no ip domain lookup
+ip domain name r2kishan
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username samkishan privilege 15 secret 5 $1$7N/j$d93HDHId.cUHpDrC3cqpg0
+!
+!
+ip ssh version 2
+! 
+!
+!
+!
+!
+interface Loopback1
+ ip address 20.20.20.1 255.255.255.255
+!
+interface Loopback2
+ ip address 22.22.22.1 255.255.255.255
+!
+interface FastEthernet0/0
+ ip address 198.51.100.3 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+router bgp 100
+ no synchronization
+ bgp log-neighbor-changes
+ network 20.20.20.1 mask 255.255.255.255
+ network 22.22.22.1 mask 255.255.255.255
+ neighbor 198.51.100.1 remote-as 100
+ no auto-summary
+!
+no ip http server
+no ip http secure-server
+ip route 10.10.10.1 255.255.255.255 198.51.100.1
+ip route 11.11.11.1 255.255.255.255 198.51.100.1
+!
+!
+!
+access-list 1 permit 198.51.100.0 0.0.0.255
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ access-class 1 in
+ exec-timeout 5 0
+ login local
+ transport input ssh
+!
+!
+end
+
+R2_Kishan(config)#end
+R2_Kishan#

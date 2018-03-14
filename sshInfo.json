@@ -1,0 +1,15 @@
+{
+    "R1": {
+        "IP address":"198.51.100.1",
+        "username":"samkishan",
+        "password":"Qwerty_1234"
+    
+
+        },
+    "R2": {
+        "IP address":"198.51.100.3",
+        "username":"samkishan",
+        "password":"Qwerty_1234"
+        }   
+
+}
